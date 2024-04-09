@@ -1,0 +1,118 @@
+@import '@/styles/variable.scss';
+
+.navBar{
+    height: 60px;
+    position: sticky;
+    top: -1px;
+    transition: all .3s;
+    z-index: 999;
+    user-select: none;
+    .navBox{
+        margin: 0 auto;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: $maxWidth;
+        .navMid,.navRight{
+            height: 100%;
+        }
+    }
+}
+/* 固定定位状态的样式 */
+.isPinned {
+    box-shadow: $boxShow;
+    background-color: rgba($color: #ffffff, $alpha: .5);
+    backdrop-filter: blur(8px);
+}
+
+.navLeft{
+    padding: 0 10px;
+    border-radius: $borderRadius;
+    font-size: 20px;
+    line-height: 40px;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+    &:hover{
+        background-color: #4b62f0;
+        color: white;
+    }
+    &:hover .navLeftBox{
+        transform: translateY(-40px);
+    }
+    .navLeftBox{
+        transition: all .5s;
+        div{
+            transition: color .1s;
+        }
+    }
+}
+.navMid{
+    .Bars{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        gap: 5px;
+        .BarsItem{
+            width: 90px;
+            border-radius: 5px;
+            z-index: 2;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            &:hover{
+                color: rgb(49, 133, 230);
+            }
+        }
+        .BarsBc{
+            border-radius: 5px;
+            z-index: 1;
+            position: absolute;
+            height: 40px;
+            @include toumingMain();
+            transition: all .3s;
+        }
+        
+    }
+}
+.navRight{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+    div{
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
+    }
+    .Mulu{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .navBar{
+        .navBox{
+            padding: 0 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navMid{
+        display: none;
+    }
+    .navRight{
+        .Mulu{
+            display: block;
+        }
+    }
+}

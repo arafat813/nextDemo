@@ -1,0 +1,82 @@
+@import '@/styles/variable.scss';
+
+.main{
+    min-height: $pageMinHeight;
+    @include MaxWidthAndCenter;
+    display: flex;
+    gap: 20px;
+}
+.Article{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 一行两列 */
+    grid-gap: 15px; /* 设置元素之间的间距 */
+    align-items: start; /* 子元素在纵向上从顶部对齐 */
+    height: 100%;
+    user-select: none;
+    .ArticleItem{
+        box-shadow: $boxShow;
+        border-radius: 5px;
+        height: 320px;
+        border: 2px solid #f7f9fe;
+        &:hover{
+            border: 2px solid $borderColor;
+        }
+        &:hover .ArticleTitleBiaoti{
+            color: $borderColor;
+        }
+        &:hover .ArticleImage .ArticleImageItem{
+            transform: scale(1.1);
+            
+        }
+        &:hover .ArticleImage .ArticleImageMask{
+            background-color: rgba($color: #000000, $alpha: .1);
+        }
+        .ArticleImage{
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            .ArticleImageItem{
+                width: 100%;
+                transition: all .3s;
+                transform: scale(1);
+            }
+            .ArticleImageMask{
+                position: absolute;
+                transition: all .3s;
+                background-color: rgba($color: #000000, $alpha: 0);
+                height: 200px;
+                width: 100%;
+                z-index: 3;
+                top: 0;
+            }
+        }
+        .ArticleTitle{
+            padding: 10px;
+            height: calc(120px - 20px);
+            line-height: 35px;
+            background-color: white;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .Article{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main{
+        padding: 0 20px;
+    }
+}

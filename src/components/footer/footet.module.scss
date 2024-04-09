@@ -1,0 +1,18 @@
+@import '@/styles/variable.scss';
+
+.footer{
+    background-color: #000000;
+    height: $footerHeight;
+    user-select: none;
+    div{
+        @include MaxWidthAndCenter;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        color: white;
+    }
+    p{
+        padding: 0 30px;
+    }
+}

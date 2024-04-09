@@ -1,0 +1,20 @@
+@mixin toumingMain{
+    background-color: rgba($color: #000000, $alpha: .05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+$boxShow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+$maxWidth: 1250px;
+$footerHeight: 80px;
+$pageMinHeight: calc(100vh - 60px - $footerHeight - 20px);
+$borderColor: #425aef;
+$borderRadius: 5px;
+
+// 最大宽度和居中
+@mixin MaxWidthAndCenter {
+    max-width: $maxWidth;
+    margin: auto;
+    margin-top: 10px;
+}
+

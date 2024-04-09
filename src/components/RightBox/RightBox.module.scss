@@ -1,0 +1,92 @@
+@import '@/styles/variable.scss';
+
+.RightBox{
+    width: 300px;
+}
+
+.sitikyBox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 70px;
+}
+
+.Me{
+    height: 350px;
+    background-color:  rgba(66, 89, 239, 0.867);
+    border-radius: $borderRadius;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    .ImgBox{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .Img{
+            border-radius: 100%;
+            transform-origin: bottom;
+            transition: all .2s;
+        }
+        .title{
+            position: absolute;
+            padding: 20px;
+            font-size: 22px;
+            opacity: 0;
+            transition: all .2s;
+        }
+    }
+    &:hover .ImgBox .Img{
+        transform: scale(.2);
+        opacity: 0;
+    }
+    &:hover .ImgBox .title{
+        opacity: 1;
+    }
+    .top{
+        text-align: center;
+        padding: 20px 0;
+        div{
+            font-size: 15px;
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba($color: #ffffff, $alpha: .2);
+            border-radius: 50px;
+            transition: all .5s;
+            &:hover{
+                transform: scale(1.08);
+                cursor: pointer;
+                user-select: none;
+                background-color: rgba($color: #ffffff, $alpha: 1);
+                color: black;
+            }
+        }
+    }
+    .bottom{
+        padding: 20px 20px;
+        p{
+            &:nth-child(1){
+                font-size: 20px;
+            }
+            &:nth-child(2){
+                font-size: 16px;
+                opacity: .7;
+            }
+        }
+    }
+}
+
+.WebsiteInformation{
+    border: 1px solid red;
+    height: 300px;
+
+
+}
+
+@media screen and (max-width: 1200px){
+ .RightBox{
+    display: none;
+ }   
+}

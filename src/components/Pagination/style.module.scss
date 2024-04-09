@@ -1,0 +1,94 @@
+@import '@/styles/variable.scss';
+
+.Pagination{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+@mixin publicPrevAndNextCss{
+    background-color: white;
+    box-shadow: $boxShow;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select:none;
+}
+
+.PrevPage,.NextPage{
+    @include publicPrevAndNextCss;
+    display: flex;
+    font-size: 16px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.PrevPage{
+    .name{
+        color: $borderColor;
+        transform: translateX(30px);
+        opacity: 0;
+        transition: all .2s;
+        font-weight: 600;
+    }
+    .icon{
+        transform: translateX(15px);
+        transition: all .3s;
+    }
+    &:hover .name{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    &:hover .icon{
+        transform: translateX(0px);
+        opacity: 1;
+        color: $borderColor;
+    }
+}
+.NextPage{
+    .name{
+        color: $borderColor;
+        transform: translateX(-30px);
+        opacity: 0;
+        transition: all .2s;
+        font-weight: 600;
+    }
+    .icon{
+        transform: translateX(-15px);
+        transition: all .3s;
+    }
+    &:hover .name{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    &:hover .icon{
+        transform: translateX(0px);
+        opacity: 1;
+        color: $borderColor;
+    }
+}
+
+.PaginationList{
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    .item{
+        @include publicPrevAndNextCss;
+        padding: 13px 20px;
+    }
+    .active{
+        border: 2px solid $borderColor;
+        color: $borderColor;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .PaginationList{
+        display: none;
+    }
+    .PrevPage,.NextPage{
+        text-align: center;
+        flex: 1;
+        padding: 13px 0;
+    }
+}
